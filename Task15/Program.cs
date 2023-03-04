@@ -1,28 +1,38 @@
-﻿// 14. Напишите программу, которая принимает на
-// вход число и проверяет, кратно ли оно
-// одновременно 7 и 23.
-// 14 -> нет
-// 46 -> нет
-// 161 -> да
+﻿// Задача 15: Напишите программу, 
+// которая принимает на вход цифру, 
+// обозначающую день недели, и проверяет,
+//  является ли этот день выходным.
 
+// 6 -> да
+// 7 -> да
+// 1 -> нет
 
-Console.WriteLine("Введите натуральное число");
-int number = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("Введите день недели");
+int day=Convert.ToInt32(Console.ReadLine());
 
-bool checkDiving = CheckDividing (number);
-Console.WriteLine(checkDiving ? "Да" : "Нет");
-bool CheckDividing (int num)
+bool checkday = CheckDay (day);
+bool validateday = ValidateDay (day);
+if (validateday)
 {
-    return num % 7 ==0 && num % 23 ==0;
+    Console.WriteLine(checkday ? "да" : "нет");
 }
 
-// Console.WriteLine("Введите натуральное число: ");
-// int number = Convert.ToInt32(Console.ReadLine());
 
-// bool checkNumber = CheckNumber(number);
-// Console.WriteLine(checkNumber==true ? "Да" : "Нет");
+bool CheckDay (int weekday)
+{
+    if (weekday > 5 )
+    {
+        return true;
+    }
+    return false;
+}
 
-// bool CheckNumber(int num)
-// {
-//     return num % 7 == 0 && num % 23 == 0;
-// }
+bool ValidateDay (int days)
+{
+    if (days > 0 && days <= 7 )
+    {
+        return true;
+    }
+    Console.WriteLine("Это не день недели");
+    return false;
+}
