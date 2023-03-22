@@ -9,7 +9,9 @@ int min = Prompt("Начальное значение для диапазона 
 int max = Prompt("Конечное значение для диапазона случайного числа: ");
 double[] array = Generate(length, min, max);
 PrintArray(array);
-double difference = Difference(array);
+double maxNum = MaxNumber(array);
+double minNum = MinNumber(array);
+double difference = Difference(maxNum, minNum);
 Console.WriteLine($"Разница между максимальным и минимальным элементами массива равна {difference}");
 
 int Prompt(string message)
@@ -41,16 +43,29 @@ void PrintArray(double[] arr)
     }
 }
 
-double Difference(double[] arr)
+double MaxNumber(double[] arr)
 {
     double maxNumber = arr[0];
-    double minNumber = arr[0];
-    double diff = 0;
     for (int i = 0; i < arr.Length; i++)
     {
-        if (arr[i] > maxNumber) maxNumber= arr[i];
-        if (arr[i] < minNumber) minNumber= arr[i];
-        diff = Math.Round(maxNumber - minNumber, 1);
+        if (arr[i] > maxNumber) maxNumber = arr[i];
     }
-    return diff;
+    return maxNumber;
+}
+
+double MinNumber(double[] arr)
+{
+    double minNumber = arr[0];
+    for (int i = 0; i < arr.Length; i++)
+    {
+        if (arr[i] < minNumber) minNumber = arr[i];
+    }
+    return minNumber;
+}
+
+double Difference(double maxNumber, double minNumber)
+{
+    double maxNum = maxNumber, minNum = minNumber;
+    double diff = 0;
+    return diff = Math.Round(maxNum - minNum, 1);
 }
