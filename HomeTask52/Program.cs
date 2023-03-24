@@ -42,7 +42,7 @@ void PrintMatrix(int[,] matrix)
 
 double[] ArrayArithmeticMean(int[,] matrix)
 {
-    int sum = 0;
+    double sum = 0;
     int count = 0;
     int size =matrix.GetLength(1);
     double[] arr = new double[size];
@@ -52,7 +52,8 @@ double[] ArrayArithmeticMean(int[,] matrix)
         {
             sum = sum + matrix[i, j];
         }
-        arr[count++] = sum / matrix.GetLength(0);
+        arr[count++] = Math.Round(sum / matrix.GetLength(0), 1);
+        sum=0;
     }
     return arr;
 }
@@ -62,7 +63,7 @@ void PrintArray(double[] arr)
     Console.Write("[");
     for (int i = 0; i < arr.Length; i++)
     {
-        if (i < arr.Length - 1) Console.Write($"{arr[i]}, ");
+        if (i < arr.Length - 1) Console.Write($"{arr[i]}; ");
         else Console.WriteLine($"{arr[i]}]");
     }
 }
