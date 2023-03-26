@@ -12,6 +12,9 @@
 int[,] array2d = FillMatrixRnd(3, 4, -10, 10);
 PrintMatrix(array2d);
 Console.WriteLine();
+int i = Prompt("Введите номер строки: ");
+int j = Prompt("Введите номер столбца: ");
+Console.WriteLine();
 PrintElement(array2d);
 
 int[,] FillMatrixRnd(int rows, int columns, int min, int max)
@@ -42,12 +45,9 @@ void PrintMatrix(int[,] matrix)
 
 void PrintElement(int[,] matrix)
 {
-    int i = Prompt("Введите номер строки: ");
-    int j = Prompt("Введите номер столбца: ");
-    Console.WriteLine();
-    if (i < matrix.GetLength(0) && j < matrix.GetLength(1))
+    if (i < matrix.GetLength(0) && j < matrix.GetLength(1) && i>0 && j>0)
     {
-        Console.WriteLine($"{i}, {j} -> {matrix[i, j]} ");
+        Console.WriteLine($"{i}, {j} -> {matrix[i-1, j-1]} ");
     }
     else Console.WriteLine($"{i}, {j} -> Такого элемента в массиве нет");
 }
