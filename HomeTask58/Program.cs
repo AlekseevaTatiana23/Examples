@@ -19,10 +19,11 @@ int[,] secondArray2d = FillMatrixRnd(k, l, 1, 10);
 PrintMatrix(secondArray2d);
 Console.WriteLine();
 bool checkmatrix= CheckMatrix(firstArray2d, secondArray2d);
-int[,] multiplicationmatrix = MultiplicationMatrix(firstArray2d, secondArray2d);
+
 
 if (checkmatrix)
 {
+   int[,] multiplicationmatrix = MultiplicationMatrix(firstArray2d, secondArray2d);
     PrintMatrix(multiplicationmatrix);
 }
 
